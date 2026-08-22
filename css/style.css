@@ -2,14 +2,14 @@
    ROOT VARIABLES
    ============================================ */
 :root {
-    --primary-color: #e8b931;
-    --primary-dark: #c99a1e;
-    --secondary-color: #1a1a2e;
+    --primary-color: #6c5ce7;
+    --primary-dark: #5a4bd1;
+    --secondary-color: #0c0c1e;
     --text-color: #333;
     --text-light: #666;
     --white: #ffffff;
     --bg-light: #f8f9fa;
-    --bg-dark: #0d0d1a;
+    --bg-dark: #0c0c1e;
     --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.2);
     --transition: all 0.3s ease;
@@ -120,7 +120,7 @@ img {
 .btn-primary:hover {
     background: var(--primary-dark);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(232, 185, 49, 0.4);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
 }
 
 .btn-secondary {
@@ -144,7 +144,7 @@ img {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(12, 12, 30, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: var(--transition);
@@ -246,7 +246,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #2d2d5e 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #1a1a4e 100%);
     overflow: hidden;
 }
 
@@ -254,8 +254,8 @@ img {
     position: absolute;
     inset: 0;
     background: 
-        radial-gradient(circle at 20% 50%, rgba(232, 185, 49, 0.08) 0%, transparent 60%),
-        radial-gradient(circle at 80% 50%, rgba(232, 185, 49, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 50%, rgba(108, 92, 231, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(108, 92, 231, 0.05) 0%, transparent 50%);
 }
 
 .hero-content {
@@ -403,7 +403,7 @@ img {
     width: 70px;
     height: 70px;
     margin: 0 auto 20px;
-    background: rgba(232, 185, 49, 0.12);
+    background: rgba(108, 92, 231, 0.12);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -555,7 +555,7 @@ img {
 .contact-item i {
     width: 50px;
     height: 50px;
-    background: rgba(232, 185, 49, 0.12);
+    background: rgba(108, 92, 231, 0.12);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -623,7 +623,7 @@ img {
     outline: none;
     border-color: var(--primary-color);
     background: var(--white);
-    box-shadow: 0 0 0 4px rgba(232, 185, 49, 0.1);
+    box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.1);
 }
 
 .form-group textarea {
@@ -716,5 +716,5 @@ img {
 .back-to-top:hover {
     background: var(--primary-dark);
     transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(232, 185, 49, 0.4);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
 }
