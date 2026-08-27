@@ -1,178 +1,95 @@
-/* ============================================
-   DOM Ready
-   ============================================ */
-document.addEventListener('DOMContentLoaded', () => {
-    // ==========================================
-    // MOBILE NAVIGATION
-    // ==========================================
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    const toggleMenu = () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    };
-    
-    const closeMenu = () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    };
-    
-    hamburger.addEventListener('click', toggleMenu);
-    
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            closeMenu();
-            // Update active link
-            navLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-        });
+// Mobile Navigation Toggle
+(function() {
+  const hamburger = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (hamburger && navLinks) {
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
     });
     
-    // ==========================================
-    // SCROLL NAVBAR & ACTIVE LINK
-    // ==========================================
-    const header = document.getElementById('header');
-    const sections = document.querySelectorAll('section[id]');
-    
-    window.addEventListener('scroll', () => {
-        // Navbar background
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(26, 26, 46, 0.98)';
-            header.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
-        } else {
-            header.style.background = 'rgba(26, 26, 46, 0.95)';
-            header.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
-        }
-        
-        // Active link
-        let current = 'home';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
     });
     
-    // ==========================================
-    // BACK TO TOP BUTTON
-    // ==========================================
-    const backToTop = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+        navLinks.classList.remove('active');
+      }
     });
-    
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-    
-    // ==========================================
-    // CONTACT FORM
-    // ==========================================
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+  }
+})();
+
+// Contact Form Handler with Validation
+(function() {
+  const form = document.getElementById('contactForm');
+  const feedback = document.getElementById('formFeedback');
+  
+  if (form && feedback) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const name = document.getElementById('fullName')?.value.trim() || '';
+      const email = document.getElementById('emailAddr')?.value.trim() || '';
+      const phone = document.getElementById('phoneNum')?.value.trim() || '';
+      const message = document.getElementById('msgText')?.value.trim() || '';
+      
+      // Validate required fields
+      if (!name || !email || !message) {
+        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+        feedback.style.color = '#f5c542';
+        return;
+      }
+      
+      // Validate email format
+      if (!email.includes('@') || !email.includes('.')) {
+        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+        feedback.style.color = '#f5c542';
+        return;
+      }
+      
+      // Simulate sending
+      feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+      feedback.style.color = '#a0bcd9';
+      
+      // Simulate successful submission
+      setTimeout(() => {
+        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
+        feedback.style.color = '#7ddf9a';
+        form.reset();
         
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const message = document.getElementById('message').value.trim();
-        
-        // Basic validation
-        if (!name || !email || !message) {
-            alert('Please fill in all required fields (Name, Email, and Message).');
-            return;
-        }
-        
-        // Email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        // Success simulation
-        const btn = contactForm.querySelector('.btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        btn.disabled = true;
-        
+        // Clear feedback after 6 seconds
         setTimeout(() => {
-            btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            btn.style.background = '#2ecc71';
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                btn.disabled = false;
-                contactForm.reset();
-            }, 3000);
-        }, 2000);
+          feedback.innerHTML = '';
+        }, 6000);
+      }, 1800);
     });
+  }
+})();
+
+// Smooth scrolling for anchor links (optional enhancement)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
     
-    // ==========================================
-    // SMOOTH SCROLL FOR NAV LINKS
-    // ==========================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // ==========================================
-    // INTERSECTION OBSERVER - FADE IN ANIMATIONS
-    // ==========================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe cards and sections
-    document.querySelectorAll('.service-card, .project-card, .testimonial-card, .about-grid, .contact-grid').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-    
-    // ==========================================
-    // CONSOLE GREETING
-    // ==========================================
-    console.log('%c🏗️ Kibish Construction', 'font-size: 24px; font-weight: bold; color: #e8b931;');
-    console.log('%cBuilding Excellence Since 2004', 'font-size: 14px; color: #666;');
-    console.log('%c🚀 Website built with ❤️', 'font-size: 12px; color: #999;');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      e.preventDefault();
+      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
