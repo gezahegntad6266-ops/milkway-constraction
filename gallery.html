@@ -1,15 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gezahegn Shutter Works | Gallery</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Gezahegn Shutter Works</title>
+    <meta name="description" content="View our gallery of shutter installations including galvanized, vertical, venetian, and roller blinds projects." />
+    <link rel="canonical" href="https://gezahegnshutter.com/gallery.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gallery | Gezahegn Shutter Works" />
+    <meta property="og:description" content="View our shutter installation projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gezahegnshutter.com/gallery.html" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+        /* Additional Gallery Styles */
+        .gallery-full-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .gallery-full-item {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px 20px 30px;
+            text-align: center;
+            border: 1px solid #e9edf2;
+            transition: 0.3s ease;
+        }
+        .gallery-full-item:hover {
+            border-color: #d4a02b;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        .gallery-image-wrapper {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            background: #1e3a5f;
+        }
+        .gallery-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-full-item:hover .gallery-image-wrapper img {
+            transform: scale(1.05);
+        }
+        .gallery-full-item i {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .gallery-full-item h4 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .gallery-full-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .gallery-full-item span {
+            display: inline-block;
+            background: #d4a02b;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-full-item span:hover {
+            background: #b8891f;
+            transform: scale(1.05);
+        }
+        .loading-spinner {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 0;
+            color: #64748b;
+        }
+        .loading-spinner i {
+            font-size: 3rem;
+            color: #d4a02b;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .premium-badge {
+            background: #d4a02b;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .gallery-full-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .gallery-image-wrapper {
+                height: 160px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .gallery-full-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-image-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- ===== COOKIE BANNER ===== -->
+    <div class="cookie-banner show" id="cookieBanner">
+        <p>
+            <i class="fas fa-cookie-bite" style="color: #d4a02b;"></i>
+            This website uses cookies to ensure you get the best experience.
+            <a href="privacy.html">Learn more</a>
+        </p>
+        <div class="cookie-buttons">
+            <button class="btn btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="btn btn-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- ===== WHATSAPP WIDGET ===== -->
+    <a href="#" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-flex">
             <div class="logo">
@@ -24,12 +161,14 @@
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="gallery.html" class="active">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="faq.html">FAQ</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
+    <!-- ===== PAGE HEADER ===== -->
     <section class="page-header">
         <div class="container">
             <h1>Our <span>Gallery</span></h1>
@@ -37,78 +176,36 @@
         </div>
     </section>
 
-    <!-- GALLERY FULL -->
+    <!-- ===== GALLERY ===== -->
     <section class="section-padding">
         <div class="container">
-            <div class="gallery-full-grid">
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://www.justdial.com/jdmart/Guwahati/Galvanized-Steel-Rolling-Shutter-ManualMotorized/pid-2188682671/9999PX361-X361-160503151929-L5U2" 
-                             alt="Galvanized Shutters">
-                    </div>
-                    <h4>Galvanized Shutters</h4>
-                    <p>Heavy-duty shutters for industrial and commercial buildings.</p>
-                    <span>View Project</span>
-                </div>
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://callistusblinds.ae/wp-content/uploads/2020/05/Vertical-5-1.jpg" 
-                             alt="Vertical Blinds">
-                    </div>
-                    <h4>Vertical Blinds</h4>
-                    <p>Elegant vertical blinds for hotels and office buildings.</p>
-                    <span>View Project</span>
-                </div>
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ3hbMnBAKtVdNnbeEJEHSNyg1sNUzzX5EykZiuDCuBfKlPkGAOqjaK8k&s=10" 
-                             alt="Venetian Blinds">
-                    </div>
-                    <h4>Venetian Blinds</h4>
-                    <p>Classic venetian blinds for homes and offices.</p>
-                    <span>View Project</span>
-                </div>
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8vGHSbfKR7LYha1b5OXb891IlSLoPzTXoRNSM_uJpbZjpVUxGg2EGlsqJ&s=10" 
-                             alt="Roller Blinds">
-                    </div>
-                    <h4>Roller Blinds</h4>
-                    <p>Modern roller blinds for hospitals and modern spaces.</p>
-                    <span>View Project</span>
-                </div>
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtrjcg6rlr2PxCrqVS3hXFTamfocJa-MwITHyy9EpjToPREzxbLhwiHBU&s=10" 
-                             alt="Hotel Installation">
-                    </div>
-                    <h4>Hotel Installations</h4>
-                    <p>Complete shutter solutions for boutique hotels.</p>
-                    <span>View Project</span>
-                </div>
-                <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONz0DXMqKiCFN_EaCIZUR7LegkK9oIz2zZRfqCEQuZcSwwzHk6hEqugk&s=10" 
-                             alt="Hospital Installation">
-                    </div>
-                    <h4>Hospital Installations</h4>
-                    <p>Durable and hygienic shutters for healthcare facilities.</p>
-                    <span>View Project</span>
+            <div class="section-title">
+                <h2>Shutter <span>Projects</span></h2>
+                <p>View our latest installations and projects</p>
+            </div>
+
+            <!-- Gallery Grid - Images Load from Supabase -->
+            <div class="gallery-full-grid" id="galleryGrid">
+                <!-- Loading Spinner -->
+                <div class="loading-spinner" id="loadingSpinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading gallery images...</p>
                 </div>
             </div>
+
             <p style="text-align: center; margin-top: 40px; color: #64748b;">
                 <i class="fas fa-camera"></i> Contact us for a complete portfolio and on-site visit.
             </p>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -116,7 +213,14 @@
                     <a href="about.html">About</a>
                     <a href="services.html">Services</a>
                     <a href="gallery.html">Gallery</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="faq.html">FAQ</a>
                     <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
@@ -132,6 +236,209 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- ============================================================
+    JAVASCRIPT - Full main.js included here for completeness
+    ============================================================ -->
+    <script>
+        /**
+         * GEZAHEGN SHUTTER WORKS - COMPLETE JAVASCRIPT WITH SUPABASE
+         */
+
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // SUPABASE CONFIGURATION
+            // ============================================================
+            // 🔴 REPLACE THIS with your Project URL (from top of API page)
+            const SUPABASE_URL = 'https://ktfnvvuvaxlnnuoxohsl.supabase.co';
+            
+            // 🟢 REPLACE THIS with your Publishable Key (from keys table)
+            const SUPABASE_KEY = 'sb_publishable_lfIZh_JL8RldOjREig84vw_g5ZUGJwy';
+
+            // ============================================================
+            // LOAD GALLERY IMAGES FROM SUPABASE
+            // ============================================================
+            async function loadGalleryImages() {
+                try {
+                    const response = await fetch(`${SUPABASE_URL}/rest/v1/gallery_images?select=*&order=created_at.desc`, {
+                        headers: {
+                            'apikey': SUPABASE_KEY,
+                            'Authorization': `Bearer ${SUPABASE_KEY}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch images');
+                    }
+
+                    const images = await response.json();
+                    return images;
+                } catch (error) {
+                    console.error('Error loading gallery:', error);
+                    return [];
+                }
+            }
+
+            // ============================================================
+            // DISPLAY GALLERY
+            // ============================================================
+            async function displayGallery() {
+                const galleryGrid = document.getElementById('galleryGrid');
+                const loadingSpinner = document.getElementById('loadingSpinner');
+                
+                if (!galleryGrid) return;
+
+                const images = await loadGalleryImages();
+
+                // Remove loading spinner
+                if (loadingSpinner) {
+                    loadingSpinner.remove();
+                }
+
+                if (images.length === 0) {
+                    galleryGrid.innerHTML = `
+                        <div style="text-align:center; grid-column:1/-1; padding:40px; color:#64748b;">
+                            <i class="fas fa-image" style="font-size:3rem; display:block; margin-bottom:16px; color:#d4a02b;"></i>
+                            <h3 style="color:#0f172a;">No Images Yet</h3>
+                            <p>Check back soon for our latest projects!</p>
+                            <p style="font-size:0.85rem; margin-top:8px;">Contact us to see our portfolio</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                galleryGrid.innerHTML = images.map(img => `
+                    <div class="gallery-full-item" data-id="${img.id}">
+                        <div class="gallery-image-wrapper">
+                            <img src="${img.url}" alt="${img.alt_text || img.title}" loading="lazy" />
+                        </div>
+                        <i class="fas ${img.is_premium ? 'fa-crown' : 'fa-image'}" style="color: ${img.is_premium ? '#d4a02b' : '#1e3a5f'};"></i>
+                        <h4>${img.title || 'Shutter Project'}</h4>
+                        <p>${img.alt_text || 'Professional installation'}</p>
+                        ${img.is_premium ? '<span class="premium-badge"><i class="fas fa-crown"></i> Premium</span>' : ''}
+                        <br>
+                        <span>View Project</span>
+                    </div>
+                `).join('');
+
+                // Add click event to gallery items
+                document.querySelectorAll('.gallery-full-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const title = this.querySelector('h4')?.textContent || 'Shutter Project';
+                        alert(`📸 ${title}\n\nClick "Contact Us" for more details about this project.\n\n📞 Call: 09 13 00 81 64`);
+                    });
+                });
+            }
+
+            // ============================================================
+            // MOBILE NAVIGATION
+            // ============================================================
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isActive = navLinks.classList.toggle('active');
+                    this.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // ============================================================
+            // COOKIE CONSENT
+            // ============================================================
+            const cookieBanner = document.getElementById('cookieBanner');
+
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + '=' + value + '; expires=' + date.toUTCString() + '; path=/';
+            }
+
+            function getCookie(name) {
+                const value = '; ' + document.cookie;
+                const parts = value.split('; ' + name + '=');
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
+
+            function acceptCookies() {
+                setCookie('cookie_consent', 'accepted', 365);
+                if (cookieBanner) cookieBanner.classList.remove('show');
+            }
+
+            function declineCookies() {
+                setCookie('cookie_consent', 'declined', 365);
+                if (cookieBanner) cookieBanner.classList.remove('show');
+            }
+
+            if (cookieBanner) {
+                const consent = getCookie('cookie_consent');
+                if (!consent) {
+                    cookieBanner.classList.add('show');
+                }
+            }
+
+            window.acceptCookies = acceptCookies;
+            window.declineCookies = declineCookies;
+
+            // ============================================================
+            // DYNAMIC YEAR IN FOOTER
+            // ============================================================
+            const yearEl = document.querySelector('.footer-bottom p');
+            if (yearEl) {
+                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
+            }
+
+            // ============================================================
+            // WHATSAPP WIDGET
+            // ============================================================
+            const whatsappWidget = document.querySelector('.whatsapp-widget');
+            if (whatsappWidget) {
+                const phone = '251913008164';
+                const message = 'Hello! I visited your website and would like to know more about your shutter services.';
+                whatsappWidget.href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+                whatsappWidget.target = '_blank';
+                whatsappWidget.rel = 'noopener noreferrer';
+                whatsappWidget.setAttribute('aria-label', 'Chat on WhatsApp');
+            }
+
+            // ============================================================
+            // RUN GALLERY ON PAGE LOAD
+            // ============================================================
+            displayGallery();
+
+            console.log('✅ Gezahegn Shutter Works — Gallery Page Loaded');
+            console.log('📍 Location: Tracon Tower, Piassa, Addis Ababa, Ethiopia');
+
+        })();
+    </script>
+
 </body>
 </html>
