@@ -1,15 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gezahegn Shutter Works | Home</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gezahegn Shutter Works | Premium Shutter Solutions in Addis Ababa</title>
+    <meta name="description" content="Gezahegn Plastic and Metal Shutter Works specializes in galvanized shutters, vertical blinds, venetian blinds, and roller blinds for hotels, hospitals, and government offices in Addis Ababa, Ethiopia." />
+    <meta name="keywords" content="shutter, galvanized shutters, vertical blinds, venetian blinds, roller blinds, Addis Ababa, Ethiopia" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://gezahegnshutter.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gezahegn Shutter Works | Premium Shutter Solutions" />
+    <meta property="og:description" content="Quality shutters for hotels, hospitals, and government offices in Addis Ababa, Ethiopia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gezahegnshutter.com/" />
+    <meta property="og:image" content="https://gezahegnshutter.com/images/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gezahegn Shutter Works" />
+    <meta name="twitter:description" content="Premium shutters in Addis Ababa, Ethiopia." />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- ===== COOKIE BANNER ===== -->
+    <div class="cookie-banner show" id="cookieBanner">
+        <p>
+            <i class="fas fa-cookie-bite" style="color: #d4a02b;"></i>
+            This website uses cookies to ensure you get the best experience.
+            <a href="privacy.html">Learn more</a>
+        </p>
+        <div class="cookie-buttons">
+            <button class="btn btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="btn btn-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- ===== WHATSAPP WIDGET ===== -->
+    <a href="#" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-flex">
             <div class="logo">
@@ -24,12 +61,13 @@
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
                 <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="container hero-grid">
             <div>
@@ -46,15 +84,21 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- PLACEHOLDER IMAGE -->
-                <img src="https://via.placeholder.com/600x400/1e3a5f/d4a02b?text=Premium+Shutters" 
-                     alt="Premium Shutters" 
-                     class="hero-img">
+                <div class="placeholder-img">
+                    <i class="fas fa-window-maximize"></i>
+                    <p>Premium Shutter Gallery</p>
+                    <div class="badge-group">
+                        <span>Galvanized</span>
+                        <span>Vertical</span>
+                        <span>Venetian</span>
+                        <span>Roller</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT PREVIEW -->
+    <!-- ===== ABOUT PREVIEW ===== -->
     <section class="section-padding">
         <div class="container">
             <div class="about-grid">
@@ -65,16 +109,14 @@
                     <a href="about.html" class="btn btn-primary" style="margin-top: 16px;">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="about-image">
-                    <!-- PLACEHOLDER IMAGE -->
-                    <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Our+Office" 
-                         alt="Our Office" 
-                         class="about-img">
+                    <i class="fas fa-building"></i>
+                    <p><strong>Tracon Tower, Piassa</strong><br/>Addis Ababa, Ethiopia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES PREVIEW -->
+    <!-- ===== SERVICES PREVIEW ===== -->
     <section class="section-padding services">
         <div class="container">
             <div class="section-title">
@@ -83,44 +125,28 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Galvanized" 
-                             alt="Galvanized Shutters" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-archway"></i>
                     <h4>Galvanized Shutters</h4>
                     <p>Heavy-duty, rust-resistant shutters for industrial use.</p>
+                    <span class="badge"><i class="fas fa-check-circle"></i> 5-Year Warranty</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Vertical+Blinds" 
-                             alt="Vertical Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-arrows-alt-v"></i>
                     <h4>Vertical Blinds</h4>
                     <p>Elegant light control for large windows and facades.</p>
+                    <span class="badge"><i class="fas fa-star"></i> 30+ Colors</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Venetian+Blinds" 
-                             alt="Venetian Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-grip-lines"></i>
                     <h4>Venetian Blinds</h4>
                     <p>Classic aluminum or wood slats, custom-sized.</p>
+                    <span class="badge"><i class="fas fa-ruler-combined"></i> Custom Fit</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Roller+Blinds" 
-                             alt="Roller Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-scroll"></i>
                     <h4>Roller Blinds</h4>
                     <p>Minimalist, durable shades with blackout options.</p>
+                    <span class="badge"><i class="fas fa-sun"></i> UV Protection</span>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 40px;">
@@ -129,40 +155,53 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- ===== TESTIMONIALS ===== -->
     <section class="section-padding testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>What Our <span>Clients Say</span></h2>
-                <p>Trusted by hotels, hospitals, government offices, and NGOs.</p>
+                <p>Trusted by hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Gezahegn Shutter Works delivered outstanding quality for our hotel renovation. The vertical blinds transformed our lobby."</p>
+                    <p>"Gezahegn Shutter Works delivered outstanding quality for our hotel renovation."</p>
                     <div class="client">— Samuel K., Hotel Manager</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"We needed durable galvanized shutters for our hospital. The team was professional and the installation was ahead of schedule."</p>
+                    <p>"The team was professional, and the installation was completed ahead of schedule."</p>
                     <div class="client">— Dr. M. Gebre, Hospital Admin</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Our NGO office needed custom roller blinds. Gezahegn provided excellent service and competitive pricing."</p>
+                    <p>"Gezahegn provided excellent service and competitive pricing for our NGO office."</p>
                     <div class="client">— T. Haile, NGO Director</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== CONTACT PREVIEW ===== -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In <span>Touch</span></h2>
+                <p>We respond within 2 hours. On-site consultation available.</p>
+            </div>
+            <div style="text-align: center;">
+                <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -170,7 +209,14 @@
                     <a href="about.html">About</a>
                     <a href="services.html">Services</a>
                     <a href="gallery.html">Gallery</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="faq.html">FAQ</a>
                     <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
@@ -186,6 +232,7 @@
         </div>
     </footer>
 
+    <!-- Main JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>
