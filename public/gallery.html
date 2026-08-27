@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Premium Shutter Gallery</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    #gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 12px; }
+    #gallery img { width:100%; height:150px; object-fit:cover; cursor:pointer; border-radius:6px; }
+    #lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center; visibility:hidden; opacity:0; transition:opacity .2s; }
+    #lightbox.visible { visibility:visible; opacity:1; }
+    #lightbox img { max-width:90%; max-height:90%; border-radius:6px; }
+    #uploadForm { margin-bottom:20px; }
+  </style>
+</head>
+<body>
+  <h1>Premium Shutter Gallery</h1>
+
+  <!-- Optional upload form (admin) -->
+  <form id="uploadForm">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="alt_text" placeholder="Alt text">
+    <label><input type="checkbox" name="is_premium"> Premium</label>
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Upload</button>
+  </form>
+
+  <div>
+    <label><input type="checkbox" id="showPremium" checked> Show premium only</label>
+  </div>
+
+  <div id="gallery"></div>
+
+  <div id="lightbox" onclick="hideLightbox()">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    const galleryEl = document.getElementById('gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const showPremium = document.getElementById('showPremium');
+    const uploadForm = document.getElementById('uploadForm');
+
+    async function loadGallery() {
+      const premium = showPremium.checked ? 'true' : '';
+      const url = premium ? '/api/gallery?premium=true' : '/api/gallery';
+      const res = await fetch(url);
+      const images = await res.json();
+      galleryEl.innerHTML = '';
+      images.forEach(img => {
+        const i = document.createElement('img');
+        i.src = img.url;
+        i.alt = img.alt_text || img.title || '';
+        i.title = img.title || '';
+        i.addEventListener('click', () => showLightbox(img));
+        galleryEl.appendChild(i);
+      });
+    }
+
+    function showLightbox(img) {
+      lightboxImg.src = img.url;
+      lightboxImg.alt = img.alt_text || img.title || '';
+      lightbox.classList.add('visible');
+    }
+    function hideLightbox() {
+      lightbox.classList.remove('visible');
+      lightboxImg.src = '';
+    }
+
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(uploadForm);
+      try {
+        const res = await fetch('/api/gallery', { method: 'POST', body: fd });
+        if (!res.ok) throw new Error('Upload failed');
+        uploadForm.reset();
+        await loadGallery();
+        alert('Uploaded');
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+
+    showPremium.addEventListener('change', loadGallery);
+    loadGallery();
+  </script>
+</body>
+</html>
