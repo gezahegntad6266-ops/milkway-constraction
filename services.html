@@ -5,82 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <style>
-        /* COPY ALL CSS FROM index.html HERE */
-        /* (All the styles from the index.html file) */
-        
-        /* Additional Services Page Styles */
-        .services-full-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-full-card {
-            background: #fff;
-            border-radius: 24px;
-            padding: 30px;
-            border: 1px solid #e9edf2;
-            transition: 0.3s ease;
-        }
-        .service-full-card:hover {
-            border-color: #d4a02b;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-            transform: translateY(-4px);
-        }
-        .service-full-card i {
-            font-size: 3rem;
-            color: #d4a02b;
-            margin-bottom: 16px;
-        }
-        .service-full-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: #0f172a;
-        }
-        .service-full-card p {
-            color: #475569;
-            margin-bottom: 16px;
-        }
-        .service-full-card ul {
-            list-style: none;
-        }
-        .service-full-card ul li {
-            padding: 6px 0;
-            color: #475569;
-        }
-        .service-full-card ul li i {
-            font-size: 1rem;
-            margin-right: 10px;
-            color: #d4a02b;
-        }
-        .cta-section {
-            text-align: center;
-            background: #0f172a;
-            color: #fff;
-            padding: 60px;
-            border-radius: 30px;
-            margin-top: 60px;
-        }
-        .cta-section h3 {
-            font-size: 2rem;
-        }
-        .cta-section p {
-            opacity: 0.8;
-            margin: 12px 0 24px;
-        }
-        @media screen and (max-width: 768px) {
-            .services-full-grid {
-                grid-template-columns: 1fr;
-            }
-            .cta-section {
-                padding: 40px 20px;
-            }
-            .cta-section h3 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -105,10 +30,10 @@
     </header>
 
     <!-- PAGE HEADER -->
-    <section class="page-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 60px 0; text-align: center;">
+    <section class="page-header">
         <div class="container">
-            <h1 style="font-size: 2.8rem; font-weight: 700;">Our <span style="color: #d4a02b;">Services</span></h1>
-            <p style="opacity: 0.8; margin-top: 8px;">Precision engineering for every space</p>
+            <h1>Our <span>Services</span></h1>
+            <p>Precision engineering for every space</p>
         </div>
     </section>
 
@@ -118,6 +43,10 @@
             <div class="services-full-grid">
                 <!-- Service 1 -->
                 <div class="service-full-card">
+                    <div class="service-full-image">
+                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Galvanized+Shutters" 
+                             alt="Galvanized Shutters">
+                    </div>
                     <i class="fas fa-archway"></i>
                     <h3>Galvanized Shutters</h3>
                     <p>Heavy-duty, rust-resistant shutters perfect for industrial and commercial applications. Our galvanized shutters are designed to withstand harsh conditions while providing security and durability.</p>
@@ -130,6 +59,10 @@
 
                 <!-- Service 2 -->
                 <div class="service-full-card">
+                    <div class="service-full-image">
+                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Vertical+Blinds" 
+                             alt="Vertical Blinds">
+                    </div>
                     <i class="fas fa-arrows-alt-v"></i>
                     <h3>Vertical Blinds</h3>
                     <p>Elegant and functional vertical blinds perfect for large windows and glass facades. Available in over 30 colors and patterns to match any interior design.</p>
@@ -142,6 +75,10 @@
 
                 <!-- Service 3 -->
                 <div class="service-full-card">
+                    <div class="service-full-image">
+                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Venetian+Blinds" 
+                             alt="Venetian Blinds">
+                    </div>
                     <i class="fas fa-grip-lines"></i>
                     <h3>Venetian Blinds</h3>
                     <p>Classic venetian blinds made from aluminum or wood slats. Custom-sized for any window, offering precise light control and timeless style.</p>
@@ -154,6 +91,10 @@
 
                 <!-- Service 4 -->
                 <div class="service-full-card">
+                    <div class="service-full-image">
+                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Roller+Blinds" 
+                             alt="Roller Blinds">
+                    </div>
                     <i class="fas fa-scroll"></i>
                     <h3>Roller Blinds</h3>
                     <p>Minimalist, durable roller shades with blackout and sun-screen options. Perfect for offices, hospitals, and modern interiors.</p>
@@ -180,7 +121,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -204,37 +145,6 @@
         </div>
     </footer>
 
-    <script>
-        (function() {
-            const hamburger = document.getElementById('hamburgerBtn');
-            const navLinks = document.getElementById('navLinks');
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const active = navLinks.classList.toggle('active');
-                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = active ? 'hidden' : '';
-                });
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    });
-                });
-                document.addEventListener('click', function(e) {
-                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-            const yearEl = document.querySelector('.footer-bottom p');
-            if (yearEl) {
-                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
-            }
-        })();
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
