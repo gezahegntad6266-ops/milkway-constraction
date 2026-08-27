@@ -1,510 +1,288 @@
-/* ---------- RESET & BASE ---------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
-}
-body {
-  background: #f5f7fa;
-  color: #1e2a3a;
-  line-height: 1.6;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/**
+ * Gezahegn Shutter Works - Main JavaScript
+ * Fully responsive with mobile-first features
+ */
 
-/* ---------- BUTTONS ---------- */
-.btn {
-  display: inline-block;
-  background: #c49a2c;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 40px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  transition: 0.25s ease;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(196, 154, 44, 0.25);
-}
-.btn i {
-  margin-right: 8px;
-}
-.btn:hover {
-  background: #a8811f;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(196, 154, 44, 0.35);
-}
-.btn-outline {
-  background: transparent;
-  border: 2px solid #c49a2c;
-  color: #c49a2c;
-  box-shadow: none;
-}
-.btn-outline:hover {
-  background: #c49a2c;
-  color: #fff;
-}
+(function() {
+    'use strict';
 
-/* ---------- HEADER / NAV ---------- */
-header {
-  background: #0a1a2b;
-  color: #fff;
-  padding: 16px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.header-flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.logo h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-.logo span {
-  color: #f5c542;
-}
-.logo small {
-  display: block;
-  font-size: 0.7rem;
-  opacity: 0.8;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-.nav-links {
-  display: flex;
-  gap: 28px;
-  font-weight: 500;
-}
-.nav-links a {
-  transition: 0.2s;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 4px;
-}
-.nav-links a:hover {
-  color: #f5c542;
-  border-bottom-color: #f5c542;
-}
-.hamburger {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #fff;
-}
+    // ============================================
+    // 1. MOBILE NAVIGATION
+    // ============================================
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
+    const header = document.querySelector('header');
+    
+    if (hamburger && navLinks) {
+        // Toggle menu
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = navLinks.classList.toggle('active');
+            // Toggle hamburger icon
+            this.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            // Prevent body scroll when menu is open (mobile)
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
-/* ---------- HERO ---------- */
-.hero {
-  background: linear-gradient(135deg, #0e263b 0%, #1b3a55 100%);
-  color: #fff;
-  padding: 70px 0 80px;
-  margin-bottom: 30px;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-.hero h2 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-.hero h2 i {
-  color: #f5c542;
-  margin-right: 12px;
-}
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 30px;
-  max-width: 500px;
-}
-.hero-stats {
-  display: flex;
-  gap: 30px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-.hero-stats div {
-  background: rgba(255,255,255,0.08);
-  padding: 10px 24px;
-  border-radius: 60px;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.hero-stats i {
-  color: #f5c542;
-  margin-right: 8px;
-}
-.hero-image {
-  background: rgba(255,255,255,0.05);
-  border-radius: 30px;
-  padding: 20px;
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-}
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-.hero-image .img-placeholder {
-  background: #2a4b6e;
-  border-radius: 20px;
-  padding: 40px 20px;
-  color: #b0cfee;
-  font-weight: 300;
-}
-.hero-image .img-placeholder i {
-  font-size: 4rem;
-  display: block;
-  margin-bottom: 16px;
-  color: #f5c542;
-}
+    // ============================================
+    // 2. SMOOTH SCROLLING WITH OFFSET
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                // Close mobile menu if open
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (hamburger) hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                }
+                
+                const headerHeight = header ? header.offsetHeight : 70;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 15;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 
-/* ---------- SECTION TITLES ---------- */
-.section-title {
-  text-align: center;
-  margin: 60px 0 30px;
-}
-.section-title h3 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #0a1a2b;
-}
-.section-title h3 i {
-  color: #c49a2c;
-  margin-right: 12px;
-}
-.section-title p {
-  color: #3d5166;
-  max-width: 600px;
-  margin: 10px auto 0;
-}
+    // ============================================
+    // 3. RESPONSIVE CONTACT FORM
+    // ============================================
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    
+    if (form && feedback) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('fullName')?.value.trim() || '';
+            const email = document.getElementById('emailAddr')?.value.trim() || '';
+            const phone = document.getElementById('phoneNum')?.value.trim() || '';
+            const message = document.getElementById('msgText')?.value.trim() || '';
+            
+            // Validation
+            if (!name || !email || !message) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+                feedback.style.color = '#f5c542';
+                feedback.style.opacity = '1';
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+                feedback.style.color = '#f5c542';
+                feedback.style.opacity = '1';
+                return;
+            }
+            
+            // Phone validation (optional but if provided, check format)
+            if (phone && !/^[0-9+\-\s()]{7,20}$/.test(phone)) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid phone number.';
+                feedback.style.color = '#f5c542';
+                feedback.style.opacity = '1';
+                return;
+            }
+            
+            // Simulate sending
+            feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+            feedback.style.color = '#a0bcd9';
+            feedback.style.opacity = '1';
+            
+            // Simulate success
+            setTimeout(() => {
+                feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
+                feedback.style.color = '#7ddf9a';
+                form.reset();
+                
+                // Auto-hide feedback after 6 seconds
+                setTimeout(() => {
+                    feedback.style.opacity = '0';
+                    setTimeout(() => {
+                        feedback.innerHTML = '';
+                        feedback.style.opacity = '1';
+                    }, 500);
+                }, 6000);
+            }, 1800);
+        });
+    }
 
-/* ---------- SERVICES ---------- */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 30px;
-  margin: 20px 0 10px;
-}
-.service-card {
-  background: #fff;
-  border-radius: 28px;
-  padding: 30px 20px 25px;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.05);
-  transition: 0.3s ease;
-  border: 1px solid #f0f2f5;
-}
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  border-color: #c49a2c;
-}
-.service-card i {
-  font-size: 3.2rem;
-  color: #c49a2c;
-  margin-bottom: 18px;
-}
-.service-card h4 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #0a1a2b;
-}
-.service-card p {
-  color: #3d5166;
-  font-size: 0.95rem;
-}
-.service-card .badge {
-  background: #e9edf2;
-  border-radius: 60px;
-  padding: 4px 16px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: 12px;
-  color: #1e2a3a;
-}
+    // ============================================
+    // 4. RESPONSIVE IMAGE GALLERY (Lightbox simulation)
+    // ============================================
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const label = this.querySelector('span')?.textContent || 'Shutter';
+            const icon = this.querySelector('i')?.className || 'fas fa-image';
+            
+            // Simple visual feedback on mobile/touch
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 200);
+            
+            // On mobile, show an alert or could be extended to a lightbox
+            if (window.innerWidth < 768) {
+                // Just a subtle feedback - could be enhanced with a modal
+                const galleryTitle = document.querySelector('#gallery .section-title h3');
+                if (galleryTitle) {
+                    const originalText = galleryTitle.innerHTML;
+                    galleryTitle.innerHTML = `<i class="fas fa-check"></i> ${label} selected`;
+                    setTimeout(() => {
+                        galleryTitle.innerHTML = originalText;
+                    }, 1500);
+                }
+            }
+        });
+    });
 
-/* ---------- IMAGE GALLERY ---------- */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  margin: 30px 0 10px;
-}
-.gallery-item {
-  background: #eef2f7;
-  border-radius: 20px;
-  padding: 30px 10px;
-  text-align: center;
-  border: 1px solid #dce2eb;
-  transition: 0.2s;
-  color: #1e2a3a;
-  font-weight: 500;
-}
-.gallery-item i {
-  font-size: 3.2rem;
-  color: #1b3a55;
-  margin-bottom: 12px;
-  display: block;
-}
-.gallery-item span {
-  display: block;
-  font-size: 0.9rem;
-  background: #fff;
-  padding: 6px 12px;
-  border-radius: 40px;
-  width: fit-content;
-  margin: 10px auto 0;
-  border: 1px solid #c49a2c;
-  color: #0a1a2b;
-}
-.gallery-item:hover {
-  background: #dce2eb;
-  border-color: #c49a2c;
-}
+    // ============================================
+    // 5. DYNAMIC YEAR IN FOOTER
+    // ============================================
+    const footerYear = document.querySelector('footer p');
+    if (footerYear) {
+        const currentYear = new Date().getFullYear();
+        footerYear.innerHTML = footerYear.innerHTML.replace('2026', currentYear);
+    }
 
-/* ---------- CLIENTS ---------- */
-.clients-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px 50px;
-  background: #fff;
-  padding: 40px 20px;
-  border-radius: 60px;
-  margin: 30px 0 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.02);
-  border: 1px solid #eef2f7;
-}
-.clients-list span {
-  font-weight: 600;
-  font-size: 1.2rem;
-  color: #1e2a3a;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.clients-list i {
-  color: #c49a2c;
-  font-size: 1.8rem;
-}
+    // ============================================
+    // 6. RESPONSIVE MAP HEIGHT ADJUSTMENT
+    // ============================================
+    function adjustMapHeight() {
+        const mapIframe = document.querySelector('.map-section iframe');
+        if (mapIframe) {
+            if (window.innerWidth < 480) {
+                mapIframe.style.height = '200px';
+            } else if (window.innerWidth < 768) {
+                mapIframe.style.height = '250px';
+            } else {
+                mapIframe.style.height = '350px';
+            }
+        }
+    }
+    
+    // Adjust map on load and resize
+    window.addEventListener('load', adjustMapHeight);
+    window.addEventListener('resize', adjustMapHeight);
 
-/* ---------- MAP & LOCATION ---------- */
-.map-section {
-  background: #fff;
-  border-radius: 40px;
-  padding: 20px;
-  margin: 30px 0 10px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  border: 1px solid #eef2f7;
-}
-.map-section iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-  border-radius: 30px;
-  display: block;
-}
-.location-address {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  background: #f0f4fa;
-  padding: 14px 24px;
-  border-radius: 60px;
-  font-weight: 500;
-}
-.location-address i {
-  color: #c49a2c;
-  font-size: 1.6rem;
-}
+    // ============================================
+    // 7. ACTIVE NAV LINK HIGHLIGHT (scroll spy)
+    // ============================================
+    function highlightActiveNav() {
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const navItems = document.querySelectorAll('.nav-links a');
+        
+        let currentSection = '';
+        const scrollPosition = window.pageYOffset + (header ? header.offsetHeight + 50 : 120);
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navItems.forEach(link => {
+            link.style.color = '';
+            link.style.borderBottomColor = 'transparent';
+            const href = link.getAttribute('href');
+            if (href === `#${currentSection}`) {
+                link.style.color = '#f5c542';
+                link.style.borderBottomColor = '#f5c542';
+            }
+        });
+    }
+    
+    // Throttled scroll event for performance
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+        scrollTimeout = window.requestAnimationFrame(function() {
+            highlightActiveNav();
+        });
+    });
 
-/* ---------- CONTACT / INFO ---------- */
-.contact-section {
-  background: #0a1a2b;
-  color: #fff;
-  border-radius: 50px 50px 0 0;
-  padding: 60px 30px 40px;
-  margin-top: 60px;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
-}
-.contact-info h3 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.contact-info h3 i {
-  color: #f5c542;
-  margin-right: 10px;
-}
-.contact-info p {
-  opacity: 0.8;
-  margin-bottom: 30px;
-}
-.contact-detail {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 20px;
-  background: rgba(255,255,255,0.05);
-  padding: 14px 24px;
-  border-radius: 60px;
-  border: 1px solid rgba(255,255,255,0.03);
-}
-.contact-detail i {
-  font-size: 1.6rem;
-  color: #f5c542;
-  width: 40px;
-  text-align: center;
-}
-.contact-detail strong {
-  font-weight: 600;
-}
-.contact-detail a {
-  color: #f5c542;
-  font-weight: 500;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 16px 20px;
-  border-radius: 60px;
-  border: none;
-  margin-bottom: 18px;
-  background: #1b3348;
-  color: #fff;
-  font-size: 1rem;
-  outline: 2px solid transparent;
-  transition: 0.2s;
-}
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #a0bcd9;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 2px solid #f5c542;
-  background: #1e3a52;
-}
-.contact-form textarea {
-  border-radius: 30px;
-  min-height: 120px;
-  resize: vertical;
-}
+    // ============================================
+    // 8. RESPONSIVE SERVICE CARDS (touch feedback)
+    // ============================================
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.97)';
+                this.style.transition = 'transform 0.1s';
+            });
+            card.addEventListener('touchend', function() {
+                this.style.transform = '';
+                this.style.transition = '';
+            });
+        });
+    }
 
-/* ---------- FOOTER ---------- */
-footer {
-  background: #040d17;
-  color: #8ba0b8;
-  padding: 30px 0;
-  text-align: center;
-}
-footer .footer-social a {
-  color: #c49a2c;
-  margin: 0 14px;
-  font-size: 1.6rem;
-  transition: 0.2s;
-}
-footer .footer-social a:hover {
-  color: #f5c542;
-  transform: scale(1.1);
-}
-footer small {
-  display: block;
-  margin-top: 20px;
-  opacity: 0.6;
-}
+    // ============================================
+    // 9. AUTO-CLOSE MOBILE MENU ON RESIZE
+    // ============================================
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 700 && navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                if (hamburger) hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        }, 250);
+    });
 
-/* ---------- RESPONSIVE ---------- */
-@media screen and (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero p {
-    margin: 0 auto 30px;
-  }
-  .hero-stats {
-    justify-content: center;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 700px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: #0a1a2b;
-    padding: 20px 0;
-    border-radius: 20px;
-    margin-top: 16px;
-    gap: 12px;
-    text-align: center;
-  }
-  .nav-links.active {
-    display: flex;
-  }
-  .hamburger {
-    display: block;
-  }
-  .header-flex {
-    flex-wrap: wrap;
-  }
-  .hero h2 {
-    font-size: 2rem;
-  }
-  .section-title h3 {
-    font-size: 1.8rem;
-  }
-  .contact-detail {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .map-section iframe {
-    height: 250px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .container {
-    padding: 0 16px;
-  }
-  .hero {
-    padding: 40px 0 50px;
-  }
-  .btn {
-    padding: 10px 22px;
-    font-size: 0.9rem;
-  }
-}
+    // ============================================
+    // 10. PERFORMANCE: LAZY LOAD IMAGES (future enhancement)
+    // ============================================
+    // If you add actual images later, you can use:
+    // document.querySelectorAll('img[data-src]').forEach(img => {
+    //     img.src = img.getAttribute('data-src');
+    // });
+
+    console.log('✅ Gezahegn Shutter Works - Fully responsive website loaded');
+    console.log(`📱 Viewport: ${window.innerWidth}x${window.innerHeight}`);
+    console.log('📍 Location: Tracon Tower, Piassa, Addis Ababa');
+
+})();
