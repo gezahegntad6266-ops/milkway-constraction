@@ -5,11 +5,618 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* ============================================================
+           ALL CSS INCLUDED HERE - NO EXTERNAL FILES NEEDED
+           ============================================================ */
+        
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .section-title h2 span {
+            color: #d4a02b;
+        }
+        .section-title p {
+            color: #475569;
+            max-width: 640px;
+            margin: 12px auto 0;
+            font-size: 1.1rem;
+        }
+
+        /* ---------- BUTTONS ---------- */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: #d4a02b;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(212, 160, 43, 0.35);
+        }
+        .btn-primary:hover {
+            background: #b8891f;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(212, 160, 43, 0.45);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #d4a02b;
+            color: #d4a02b;
+        }
+        .btn-outline:hover {
+            background: #d4a02b;
+            color: #fff;
+        }
+
+        /* ---------- HEADER ---------- */
+        header {
+            background: #0f172a;
+            color: #fff;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo h1 span {
+            color: #d4a02b;
+        }
+        .logo small {
+            display: block;
+            font-size: 0.7rem;
+            opacity: 0.7;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+        }
+        .nav-links a {
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #d4a02b;
+            border-bottom-color: #d4a02b;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: #fff;
+            padding: 100px 0 80px;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero h2 span {
+            color: #d4a02b;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .hero-stats .number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #d4a02b;
+        }
+        .hero-stats .label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .hero-image {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 30px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+        .hero-image .placeholder-img {
+            background: #1e3a5f;
+            border-radius: 20px;
+            padding: 60px 20px;
+        }
+        .hero-image .placeholder-img i {
+            font-size: 5rem;
+            color: #d4a02b;
+            display: block;
+            margin-bottom: 16px;
+        }
+        .hero-image .placeholder-img p {
+            color: #b0cfea;
+            font-size: 1.2rem;
+        }
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+        .badge-group span {
+            background: #1e3a5f;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ---------- ABOUT ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+        .about-content h3 span {
+            color: #d4a02b;
+        }
+        .about-content p {
+            color: #475569;
+            margin-bottom: 16px;
+        }
+        .about-image {
+            background: #e2e8f0;
+            border-radius: 30px;
+            padding: 40px;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-image i {
+            font-size: 4rem;
+            color: #1e3a5f;
+        }
+        .about-image p {
+            color: #475569;
+            margin-top: 12px;
+        }
+
+        /* ---------- SERVICES ---------- */
+        .services {
+            background: #f1f5f9;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px 28px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            transition: 0.3s ease;
+            border: 1px solid #e9edf2;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4a02b;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+        .service-card i {
+            font-size: 3.4rem;
+            color: #d4a02b;
+            margin-bottom: 20px;
+        }
+        .service-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        .service-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        .service-card .badge {
+            display: inline-block;
+            margin-top: 16px;
+            background: #f1f5f9;
+            padding: 4px 18px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ---------- GALLERY ---------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 20px;
+            padding: 36px 16px;
+            text-align: center;
+            border: 1px solid #e9edf2;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            border-color: #d4a02b;
+            transform: translateY(-4px);
+        }
+        .gallery-item i {
+            font-size: 3rem;
+            color: #1e3a5f;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .gallery-item span {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* ---------- TESTIMONIALS ---------- */
+        .testimonials {
+            background: #0f172a;
+            color: #fff;
+        }
+        .testimonials .section-title h2 {
+            color: #fff;
+        }
+        .testimonials .section-title p {
+            color: #94a3b8;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 32px 28px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .testimonial-card .stars {
+            color: #d4a02b;
+            margin-bottom: 12px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+        }
+        .testimonial-card .client {
+            font-weight: 600;
+            color: #d4a02b;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+        .contact-info h3 span {
+            color: #d4a02b;
+        }
+        .contact-info p {
+            color: #475569;
+            margin-bottom: 32px;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .contact-detail i {
+            width: 44px;
+            height: 44px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4a02b;
+            font-size: 1.2rem;
+        }
+        .contact-detail strong {
+            display: block;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .contact-detail a {
+            color: #0f172a;
+            font-weight: 500;
+        }
+        .contact-detail a:hover {
+            color: #d4a02b;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: #fff;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid #d4a02b;
+            border-color: transparent;
+        }
+        .contact-form textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        /* ---------- MAP ---------- */
+        .map-wrapper {
+            margin-top: 48px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .map-wrapper iframe {
+            width: 100%;
+            height: 320px;
+            border: 0;
+            display: block;
+        }
+        .map-address {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            background: #fff;
+            padding: 16px 24px;
+            border-radius: 60px;
+            margin-top: -24px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .map-address i {
+            color: #d4a02b;
+            font-size: 1.4rem;
+        }
+        .map-address span {
+            font-weight: 500;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 48px 0 32px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+        .footer-brand h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .footer-brand h3 span {
+            color: #d4a02b;
+        }
+        .footer-brand p {
+            max-width: 320px;
+        }
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            display: block;
+            margin-bottom: 8px;
+            transition: 0.2s;
+        }
+        .footer-links a:hover {
+            color: #d4a02b;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media screen and (max-width: 992px) {
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            .hero h2 {
+                font-size: 2.6rem;
+            }
+            .hero-stats {
+                gap: 24px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #0f172a;
+                padding: 20px 0;
+                border-radius: 16px;
+                margin-top: 16px;
+                gap: 14px;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero-stats .number {
+                font-size: 1.6rem;
+            }
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .map-wrapper iframe {
+                height: 220px;
+            }
+            .map-address {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero-image .placeholder-img {
+                padding: 30px 16px;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-flex">
             <div class="logo">
@@ -20,6 +627,7 @@
                 <i class="fas fa-bars"></i>
             </div>
             <nav class="nav-links" id="navLinks">
+                <!-- LINK TO OTHER PAGES -->
                 <a href="index.html" class="active">Home</a>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -29,14 +637,16 @@
         </div>
     </header>
 
-    <!-- HERO -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="container hero-grid">
             <div>
                 <h2>Premium <span>Shutter</span> Solutions for Every Space</h2>
                 <p>Galvanized, vertical, venetian &amp; roller blinds — crafted for hotels, hospitals, government offices &amp; NGOs.</p>
                 <div class="hero-buttons">
+                    <!-- LINK TO CONTACT PAGE -->
                     <a href="contact.html" class="btn btn-primary"><i class="fas fa-phone-alt"></i> Get a Quote</a>
+                    <!-- LINK TO SERVICES PAGE -->
                     <a href="services.html" class="btn btn-outline"><i class="fas fa-cogs"></i> Our Services</a>
                 </div>
                 <div class="hero-stats">
@@ -46,15 +656,21 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- PLACEHOLDER IMAGE -->
-                <img src="https://via.placeholder.com/600x400/1e3a5f/d4a02b?text=Premium+Shutters" 
-                     alt="Premium Shutters" 
-                     class="hero-img">
+                <div class="placeholder-img">
+                    <i class="fas fa-window-maximize"></i>
+                    <p>Premium Shutter Gallery</p>
+                    <div class="badge-group">
+                        <span>Galvanized</span>
+                        <span>Vertical</span>
+                        <span>Venetian</span>
+                        <span>Roller</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT PREVIEW -->
+    <!-- ===== ABOUT PREVIEW ===== -->
     <section class="section-padding">
         <div class="container">
             <div class="about-grid">
@@ -62,19 +678,18 @@
                     <h3>About <span>Gezahegn Shutter Works</span></h3>
                     <p>Established in 2010, Gezahegn Plastic and Metal Shutter Works has grown to become a trusted name in the shutter industry across Ethiopia.</p>
                     <p>We specialize in providing high-quality galvanized shutters, vertical blinds, venetian blinds, and roller blinds for a wide range of clients.</p>
+                    <!-- LINK TO ABOUT PAGE -->
                     <a href="about.html" class="btn btn-primary" style="margin-top: 16px;">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="about-image">
-                    <!-- PLACEHOLDER IMAGE -->
-                    <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Our+Office" 
-                         alt="Our Office" 
-                         class="about-img">
+                    <i class="fas fa-building"></i>
+                    <p><strong>Tracon Tower, Piassa</strong><br/>Addis Ababa, Ethiopia</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES PREVIEW -->
+    <!-- ===== SERVICES PREVIEW ===== -->
     <section class="section-padding services">
         <div class="container">
             <div class="section-title">
@@ -83,89 +698,75 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Galvanized" 
-                             alt="Galvanized Shutters" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-archway"></i>
                     <h4>Galvanized Shutters</h4>
-                    <p>Heavy-duty, rust-resistant shutters for industrial use.</p>
+                    <p>Heavy-duty, rust-resistant shutters for industrial and commercial use.</p>
+                    <span class="badge"><i class="fas fa-check-circle"></i> 5-Year Warranty</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Vertical+Blinds" 
-                             alt="Vertical Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-arrows-alt-v"></i>
                     <h4>Vertical Blinds</h4>
-                    <p>Elegant light control for large windows and facades.</p>
+                    <p>Elegant light control, perfect for large windows and glass facades.</p>
+                    <span class="badge"><i class="fas fa-star"></i> 30+ Colors</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Venetian+Blinds" 
-                             alt="Venetian Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-grip-lines"></i>
                     <h4>Venetian Blinds</h4>
-                    <p>Classic aluminum or wood slats, custom-sized.</p>
+                    <p>Classic aluminum or wood slats, custom-sized for any window.</p>
+                    <span class="badge"><i class="fas fa-ruler-combined"></i> Custom Fit</span>
                 </div>
                 <div class="service-card">
-                    <div class="service-image-wrapper">
-                        <img src="https://via.placeholder.com/400x250/1e3a5f/d4a02b?text=Roller+Blinds" 
-                             alt="Roller Blinds" 
-                             class="service-img">
-                    </div>
                     <i class="fas fa-scroll"></i>
                     <h4>Roller Blinds</h4>
-                    <p>Minimalist, durable shades with blackout options.</p>
+                    <p>Minimalist, durable roller shades with blackout and sun-screen options.</p>
+                    <span class="badge"><i class="fas fa-sun"></i> UV Protection</span>
                 </div>
             </div>
+            <!-- LINK TO SERVICES PAGE -->
             <div style="text-align: center; margin-top: 40px;">
                 <a href="services.html" class="btn btn-primary">View All Services <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- ===== TESTIMONIALS ===== -->
     <section class="section-padding testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>What Our <span>Clients Say</span></h2>
-                <p>Trusted by hotels, hospitals, government offices, and NGOs.</p>
+                <p>Trusted by hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Gezahegn Shutter Works delivered outstanding quality for our hotel renovation. The vertical blinds transformed our lobby."</p>
+                    <p>"Gezahegn Shutter Works delivered outstanding quality for our hotel renovation. The vertical blinds transformed our lobby — elegant and functional."</p>
                     <div class="client">— Samuel K., Hotel Manager</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"We needed durable galvanized shutters for our hospital. The team was professional and the installation was ahead of schedule."</p>
+                    <p>"We needed durable galvanized shutters for our hospital. The team was professional, and the installation was completed ahead of schedule."</p>
                     <div class="client">— Dr. M. Gebre, Hospital Admin</div>
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Our NGO office needed custom roller blinds. Gezahegn provided excellent service and competitive pricing."</p>
+                    <p>"Our NGO office needed custom roller blinds for multiple buildings. Gezahegn provided excellent service and competitive pricing."</p>
                     <div class="client">— T. Haile, NGO Director</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
+                    <!-- LINKS TO OTHER PAGES -->
                     <a href="index.html">Home</a>
                     <a href="about.html">About</a>
                     <a href="services.html">Services</a>
@@ -186,6 +787,83 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ---- Mobile Nav ----
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const active = navLinks.classList.toggle('active');
+                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = active ? 'hidden' : '';
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // ---- Contact Form ----
+            const form = document.getElementById('contactForm');
+            const feedback = document.getElementById('formFeedback');
+            if (form && feedback) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('fullName')?.value.trim() || '';
+                    const email = document.getElementById('emailAddr')?.value.trim() || '';
+                    const msg = document.getElementById('msgText')?.value.trim() || '';
+
+                    if (!name || !email || !msg) {
+                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+                        return;
+                    }
+                    if (!email.includes('@') || !email.includes('.')) {
+                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+                        return;
+                    }
+
+                    feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+                    feedback.style.color = '#94a3b8';
+
+                    setTimeout(() => {
+                        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
+                        feedback.style.color = '#22c55e';
+                        form.reset();
+                        setTimeout(() => {
+                            feedback.innerHTML = '';
+                        }, 5000);
+                    }, 1500);
+                });
+            }
+
+            // ---- Dynamic Year ----
+            const yearEl = document.querySelector('.footer-bottom p');
+            if (yearEl) {
+                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
+            }
+
+            console.log('✅ Gezahegn Shutter Works — Home Page Loaded');
+
+        })();
+    </script>
+
 </body>
 </html>
