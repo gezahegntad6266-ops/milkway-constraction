@@ -5,41 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <style>
-        /* COPY ALL CSS FROM index.html HERE */
-        /* (All the styles from the index.html file) */
-        
-        /* Additional Contact Page Styles */
-        .social-links {
-            display: flex;
-            gap: 16px;
-            margin-top: 24px;
-        }
-        .social-links a {
-            width: 48px;
-            height: 48px;
-            background: #f1f5f9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #0f172a;
-            transition: 0.3s ease;
-        }
-        .social-links a:hover {
-            background: #d4a02b;
-            color: #fff;
-            transform: translateY(-4px);
-        }
-        #formFeedback {
-            margin-top: 12px;
-            font-weight: 500;
-            color: #d4a02b;
-            min-height: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -64,19 +30,19 @@
     </header>
 
     <!-- PAGE HEADER -->
-    <section class="page-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 60px 0; text-align: center;">
+    <section class="page-header">
         <div class="container">
-            <h1 style="font-size: 2.8rem; font-weight: 700;">Contact <span style="color: #d4a02b;">Us</span></h1>
-            <p style="opacity: 0.8; margin-top: 8px;">We respond within 2 hours. On-site consultation available.</p>
+            <h1>Contact <span>Us</span></h1>
+            <p>We respond within 2 hours. On-site consultation available.</p>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section class="section-padding">
         <div class="container">
-            <div class="contact-grid">
+            <div class="contact-grid-full">
                 <!-- Contact Info -->
-                <div class="contact-info">
+                <div class="contact-info-full">
                     <h3>Get In <span>Touch</span></h3>
                     <p>Reach out to us for a free estimate or to discuss your shutter project.</p>
 
@@ -122,7 +88,8 @@
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form">
+                <div class="contact-form-full">
+                    <h3>Send Us a <span>Message</span></h3>
                     <form id="contactForm">
                         <input type="text" id="fullName" placeholder="Full Name" required>
                         <input type="email" id="emailAddr" placeholder="Email Address" required>
@@ -133,7 +100,7 @@
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
-                    <div id="formFeedback"></div>
+                    <div id="formFeedback" style="margin-top: 12px; font-weight: 500; color: #d4a02b;"></div>
                 </div>
             </div>
 
@@ -161,7 +128,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -185,79 +152,162 @@
         </div>
     </footer>
 
-    <script>
-        (function() {
-            'use strict';
+    <script src="js/main.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gezahegn Shutter Works | Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-            // Mobile Nav
-            const hamburger = document.getElementById('hamburgerBtn');
-            const navLinks = document.getElementById('navLinks');
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const active = navLinks.classList.toggle('active');
-                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = active ? 'hidden' : '';
-                });
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    });
-                });
-                document.addEventListener('click', function(e) {
-                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
+    <!-- HEADER -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <h1>Gezahegn <span>Shutter</span></h1>
+                <small>Plastic &amp; Metal Works</small>
+            </div>
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-            // Contact Form
-            const form = document.getElementById('contactForm');
-            const feedback = document.getElementById('formFeedback');
-            if (form && feedback) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const name = document.getElementById('fullName')?.value.trim() || '';
-                    const email = document.getElementById('emailAddr')?.value.trim() || '';
-                    const msg = document.getElementById('msgText')?.value.trim() || '';
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact <span>Us</span></h1>
+            <p>We respond within 2 hours. On-site consultation available.</p>
+        </div>
+    </section>
 
-                    if (!name || !email || !msg) {
-                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
-                        feedback.style.color = '#d4a02b';
-                        return;
-                    }
-                    if (!email.includes('@') || !email.includes('.')) {
-                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
-                        feedback.style.color = '#d4a02b';
-                        return;
-                    }
+    <!-- CONTACT SECTION -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="contact-grid-full">
+                <!-- Contact Info -->
+                <div class="contact-info-full">
+                    <h3>Get In <span>Touch</span></h3>
+                    <p>Reach out to us for a free estimate or to discuss your shutter project.</p>
 
-                    feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
-                    feedback.style.color = '#94a3b8';
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <strong>Call / WhatsApp</strong>
+                            <a href="tel:+251913008164">09 13 00 81 64</a> &nbsp;|&nbsp;
+                            <a href="tel:+251912377111">09 12 37 71 11</a>
+                        </div>
+                    </div>
 
-                    setTimeout(() => {
-                        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
-                        feedback.style.color = '#22c55e';
-                        form.reset();
-                        setTimeout(() => {
-                            feedback.innerHTML = '';
-                        }, 5000);
-                    }, 1500);
-                });
-            }
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:gezahegntad6266@gmail.com">gezahegntad6266@gmail.com</a>
+                        </div>
+                    </div>
 
-            // Dynamic Year
-            const yearEl = document.querySelector('.footer-bottom p');
-            if (yearEl) {
-                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
-            }
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Head Office</strong>
+                            Tracon Tower, Piassa, Addis Ababa, Ethiopia
+                        </div>
+                    </div>
 
-            console.log('✅ Gezahegn Shutter Works — Contact Page Loaded');
-        })();
-    </script>
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Working Hours</strong>
+                            Monday – Saturday: 8:00 AM – 6:00 PM
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-full">
+                    <h3>Send Us a <span>Message</span></h3>
+                    <form id="contactForm">
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                        <input type="email" id="emailAddr" placeholder="Email Address" required>
+                        <input type="tel" id="phoneNum" placeholder="Phone Number">
+                        <input type="text" id="subject" placeholder="Subject">
+                        <textarea id="msgText" placeholder="Tell us about your shutter project (type, size, quantity...)" rows="5"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                    <div id="formFeedback" style="margin-top: 12px; font-weight: 500; color: #d4a02b;"></div>
+                </div>
+            </div>
+
+            <!-- MAP -->
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.442585398977!2d38.76321531479892!3d9.023816793505232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85c1ea9d7f33%3A0x6f8e3c8f7e2a0b4d!2sTracon%20Tower!5e0!3m2!1sen!2set!4v1710000000000"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+            <div class="map-address">
+                <i class="fas fa-location-dot"></i>
+                <span>Tracon Tower, Piassa, Addis Ababa, Ethiopia</span>
+                <span style="background: #d4a02b; color: #fff; padding: 4px 16px; border-radius: 40px; font-size: 0.8rem;">
+                    <i class="fas fa-clock"></i> Mon–Sat 8:00–18:00
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Gezahegn <span>Shutter</span></h3>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact</h4>
+                    <a href="tel:+251913008164"><i class="fas fa-phone"></i> 09 13 00 81 64</a>
+                    <a href="tel:+251912377111"><i class="fas fa-phone"></i> 09 12 37 71 11</a>
+                    <a href="mailto:gezahegntad6266@gmail.com"><i class="fas fa-envelope"></i> Email Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Gezahegn Plastic &amp; Metal Shutter Works. All rights reserved.</p>
+                <p style="margin-top: 8px; font-size: 0.8rem;">Tracon Tower, Piassa, Addis Ababa, Ethiopia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
