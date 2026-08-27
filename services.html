@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gezahegn Shutter Works | Services</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services | Gezahegn Shutter Works</title>
+    <meta name="description" content="Explore our shutter services including galvanized shutters, vertical blinds, venetian blinds, and roller blinds in Addis Ababa." />
+    <link rel="canonical" href="https://gezahegnshutter.com/services.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Services | Gezahegn Shutter Works" />
+    <meta property="og:description" content="Quality shutter solutions for every space." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gezahegnshutter.com/services.html" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- ===== COOKIE BANNER ===== -->
+    <div class="cookie-banner show" id="cookieBanner">
+        <p>
+            <i class="fas fa-cookie-bite" style="color: #d4a02b;"></i>
+            This website uses cookies to ensure you get the best experience.
+            <a href="privacy.html">Learn more</a>
+        </p>
+        <div class="cookie-buttons">
+            <button class="btn btn-decline" onclick="declineCookies()">Decline</button>
+            <button class="btn btn-accept" onclick="acceptCookies()">Accept</button>
+        </div>
+    </div>
+
+    <!-- ===== WHATSAPP WIDGET ===== -->
+    <a href="#" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-flex">
             <div class="logo">
@@ -24,12 +52,13 @@
                 <a href="about.html">About</a>
                 <a href="services.html" class="active">Services</a>
                 <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
+    <!-- ===== PAGE HEADER ===== -->
     <section class="page-header">
         <div class="container">
             <h1>Our <span>Services</span></h1>
@@ -37,16 +66,12 @@
         </div>
     </section>
 
-    <!-- SERVICES FULL -->
+    <!-- ===== SERVICES FULL ===== -->
     <section class="section-padding">
         <div class="container">
             <div class="services-full-grid">
                 <!-- Service 1 -->
                 <div class="service-full-card">
-                    <div class="service-full-image">
-                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Galvanized+Shutters" 
-                             alt="Galvanized Shutters">
-                    </div>
                     <i class="fas fa-archway"></i>
                     <h3>Galvanized Shutters</h3>
                     <p>Heavy-duty, rust-resistant shutters perfect for industrial and commercial applications. Our galvanized shutters are designed to withstand harsh conditions while providing security and durability.</p>
@@ -59,10 +84,6 @@
 
                 <!-- Service 2 -->
                 <div class="service-full-card">
-                    <div class="service-full-image">
-                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Vertical+Blinds" 
-                             alt="Vertical Blinds">
-                    </div>
                     <i class="fas fa-arrows-alt-v"></i>
                     <h3>Vertical Blinds</h3>
                     <p>Elegant and functional vertical blinds perfect for large windows and glass facades. Available in over 30 colors and patterns to match any interior design.</p>
@@ -75,10 +96,6 @@
 
                 <!-- Service 3 -->
                 <div class="service-full-card">
-                    <div class="service-full-image">
-                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Venetian+Blinds" 
-                             alt="Venetian Blinds">
-                    </div>
                     <i class="fas fa-grip-lines"></i>
                     <h3>Venetian Blinds</h3>
                     <p>Classic venetian blinds made from aluminum or wood slats. Custom-sized for any window, offering precise light control and timeless style.</p>
@@ -91,10 +108,6 @@
 
                 <!-- Service 4 -->
                 <div class="service-full-card">
-                    <div class="service-full-image">
-                        <img src="https://via.placeholder.com/600x350/1e3a5f/d4a02b?text=Roller+Blinds" 
-                             alt="Roller Blinds">
-                    </div>
                     <i class="fas fa-scroll"></i>
                     <h3>Roller Blinds</h3>
                     <p>Minimalist, durable roller shades with blackout and sun-screen options. Perfect for offices, hospitals, and modern interiors.</p>
@@ -115,13 +128,13 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -129,7 +142,14 @@
                     <a href="about.html">About</a>
                     <a href="services.html">Services</a>
                     <a href="gallery.html">Gallery</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="faq.html">FAQ</a>
                     <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contact</h4>
