@@ -27,8 +27,15 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
-    if (/^image\/(jpeg|png|gif|webp)$/.test(file.mimetype)) cb(null, true);
-    else cb(new Error('Only image files are allowed'), false);
+    // allow common image mimetypes and fall back to extension check when mimetype is missing/unreliable
+    const allowedMimes = /^image\/(jpeg|pjpeg|png|gif|webp|svg\+xml)$/;
+    if (file.mimetype && allowedMimes.test(file.mimetype)) return cb(null, true);
+
+    // Fallback: check file extension
+    const ext = path.extname(file.originalname || '').toLowerCase();
+    if (['.jpg', '.jpeg', '.pjpeg', '.png', '.gif', '.webp', '.svg'].includes(ext)) return cb(null, true);
+
+    cb(new Error('Only image files are allowed'), false);
   },
   limits: { fileSize: 5 * 1024 * 1024 }
 });
