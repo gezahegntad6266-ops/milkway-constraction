@@ -5,99 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <style>
-        /* COPY THE SAME CSS FROM index.html ABOVE */
-        /* (All the styles from the index.html file) */
-        
-        /* Additional About Page Styles */
-        .about-full {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 60px;
-        }
-        .about-full-content h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #0f172a;
-        }
-        .about-full-content h2 span {
-            color: #d4a02b;
-        }
-        .about-full-content p {
-            color: #475569;
-            margin-bottom: 16px;
-        }
-        .about-full-image {
-            background: #e2e8f0;
-            border-radius: 30px;
-            padding: 60px;
-            text-align: center;
-        }
-        .about-full-image i {
-            font-size: 5rem;
-            color: #1e3a5f;
-        }
-        .about-features-full {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        .feature-box {
-            background: #fff;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #e9edf2;
-            transition: 0.3s ease;
-        }
-        .feature-box:hover {
-            border-color: #d4a02b;
-            transform: translateY(-4px);
-        }
-        .feature-box i {
-            font-size: 2.4rem;
-            color: #d4a02b;
-            margin-bottom: 12px;
-        }
-        .feature-box h4 {
-            font-size: 1.1rem;
-            color: #0f172a;
-        }
-        .feature-box p {
-            color: #475569;
-            font-size: 0.95rem;
-        }
-        .stats-full {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            text-align: center;
-            background: #0f172a;
-            padding: 50px;
-            border-radius: 30px;
-            color: #fff;
-            margin-top: 40px;
-        }
-        .stats-full .number {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #d4a02b;
-        }
-        .stats-full .label {
-            font-size: 0.95rem;
-            opacity: 0.7;
-        }
-        @media screen and (max-width: 992px) {
-            .about-full {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -122,10 +30,10 @@
     </header>
 
     <!-- PAGE HEADER -->
-    <section class="page-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 60px 0; text-align: center;">
+    <section class="page-header">
         <div class="container">
-            <h1 style="font-size: 2.8rem; font-weight: 700;">About <span style="color: #d4a02b;">Us</span></h1>
-            <p style="opacity: 0.8; margin-top: 8px;">Learn more about Gezahegn Shutter Works</p>
+            <h1>About <span>Us</span></h1>
+            <p>Learn more about Gezahegn Shutter Works</p>
         </div>
     </section>
 
@@ -140,8 +48,9 @@
                     <p>With over 15 years of experience, we have completed more than 200 projects across Addis Ababa and beyond. Our team of skilled professionals ensures that every installation meets the highest standards of quality and safety.</p>
                 </div>
                 <div class="about-full-image">
-                    <i class="fas fa-building"></i>
-                    <p style="margin-top: 12px; color: #475569;"><strong>Tracon Tower, Piassa</strong><br/>Addis Ababa, Ethiopia</p>
+                    <img src="https://via.placeholder.com/600x400/1e3a5f/d4a02b?text=Our+Company" 
+                         alt="Our Company" 
+                         style="width:100%; border-radius:20px;">
                 </div>
             </div>
 
@@ -196,7 +105,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -220,37 +129,6 @@
         </div>
     </footer>
 
-    <script>
-        (function() {
-            const hamburger = document.getElementById('hamburgerBtn');
-            const navLinks = document.getElementById('navLinks');
-            if (hamburger && navLinks) {
-                hamburger.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const active = navLinks.classList.toggle('active');
-                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = active ? 'hidden' : '';
-                });
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', function() {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    });
-                });
-                document.addEventListener('click', function(e) {
-                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-                        navLinks.classList.remove('active');
-                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
-            const yearEl = document.querySelector('.footer-bottom p');
-            if (yearEl) {
-                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
-            }
-        })();
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
