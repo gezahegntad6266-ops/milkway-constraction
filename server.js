@@ -44,6 +44,9 @@ const upload = multer({
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Health endpoint for liveness checks
+app.get('/health', (req, res) => res.status(200).send('ok'));
+
 // POST /api/gallery - upload an image and insert DB row
 app.post('/api/gallery', upload.single('image'), async (req, res) => {
   try {
