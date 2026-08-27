@@ -1,390 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A modern, fully responsive website built for GitHub deployment" />
-    <title>Milky Way Construction - Building Excellence</title>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-    
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="css/style.css" />
-    
-    <!-- Responsive Styles -->
-    <link rel="stylesheet" href="css/responsive.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Gezahegn Shutter Works · Piassa</title>
+  <!-- Font Awesome 5 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- ===== HEADER / NAVIGATION ===== -->
-    <header class="header" id="header">
-        <nav class="navbar container">
-            <div class="nav-brand">
-                <a href="#home" class="logo">
-                    <i class="fas fa-galaxy"></i>
-                    <span>Milky Way</span> Construction
-                </a>
-            </div>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <h1>Gezahegn <span>Shutter</span></h1>
+        <small>Plastic & Metal · Since 2010</small>
+      </div>
+      <div class="hamburger" id="hamburgerBtn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <h1 class="hero-title">
-                Building <span>Dreams</span> Across<br />
-                The <span>Galaxy</span> of Excellence
-            </h1>
-            <p class="hero-description">
-                Milky Way Construction delivers premium quality construction services 
-                with precision, safety, and innovation across the universe of building.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary">
-                    <i class="fas fa-arrow-right"></i> View Our Work
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-phone-alt"></i> Get a Quote
-                </a>
-            </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h2><i class="fas fa-shield-alt"></i> Premium Shutter Solutions</h2>
+        <p>Galvanized, vertical, venetian & roller blinds — crafted for hotels, hospitals, government & NGOs.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#contact" class="btn"><i class="fas fa-phone-alt"></i> Get Quote</a>
+          <a href="#services" class="btn btn-outline" style="background:transparent; border-color:#f5c542; color:#f5c542;"><i class="fas fa-cogs"></i> Explore</a>
         </div>
-    </section>
-
-    <!-- ===== ABOUT SECTION ===== -->
-    <section class="about section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Us</span>
-                <h2 class="section-title">Excellence in Every Brick</h2>
-                <p class="section-subtitle">
-                    With over 25 years of experience, we transform visions into reality.
-                </p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Construction site" />
-                    <div class="experience-badge">
-                        <span class="number">25+</span>
-                        <span class="label">Years Experience</span>
-                    </div>
-                </div>
-                
-                <div class="about-text">
-                    <h3>We Build More Than Structures</h3>
-                    <p>
-                        Milky Way Construction is a premier construction company dedicated to 
-                        delivering exceptional quality, safety, and innovation in every project 
-                        we undertake across the globe.
-                    </p>
-                    <ul class="about-features">
-                        <li><i class="fas fa-check-circle"></i> Licensed & Insured</li>
-                        <li><i class="fas fa-check-circle"></i> 100% Customer Satisfaction</li>
-                        <li><i class="fas fa-check-circle"></i> Modern Equipment & Technology</li>
-                        <li><i class="fas fa-check-circle"></i> Eco-Friendly Practices</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Learn More</a>
-                </div>
-            </div>
+        <div class="hero-stats">
+          <div><i class="fas fa-building"></i> 200+ Projects</div>
+          <div><i class="fas fa-user-check"></i> 90+ Clients</div>
         </div>
-    </section>
-
-    <!-- ===== SERVICES SECTION ===== -->
-    <section class="services section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">What We Offer</span>
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">
-                    Comprehensive construction solutions tailored to your needs.
-                </p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Residential Construction</h3>
-                    <p>Custom homes, renovations, and extensions with premium quality finishes.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-city"></i>
-                    </div>
-                    <h3>Commercial Building</h3>
-                    <p>Office spaces, retail stores, and commercial complexes built to last.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <h3>Architectural Design</h3>
-                    <p>Creative and functional design solutions for modern living and working.</p>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hard-hat"></i>
-                    </div>
-                    <h3>Project Management</h3>
-                    <p>End-to-end project management ensuring timely delivery and quality.</p>
-                </div>
-            </div>
+      </div>
+      <div class="hero-image">
+        <div class="img-placeholder">
+          <i class="fas fa-window-maximize"></i>
+          <p style="font-size:1.4rem; font-weight:300;">Shutter <strong style="color:#f5c542;">Gallery</strong></p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:10px;">
+            <span style="background:#1b3a55; padding:4px 16px; border-radius:40px;">Galvanized</span>
+            <span style="background:#1b3a55; padding:4px 16px; border-radius:40px;">Vertical</span>
+            <span style="background:#1b3a55; padding:4px 16px; border-radius:40px;">Venetian</span>
+            <span style="background:#1b3a55; padding:4px 16px; border-radius:40px;">Roller</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== PROJECTS SECTION ===== -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Our Portfolio</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">
-                    Some of our finest works showcasing our commitment to excellence.
-                </p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Modern House" />
-                    </div>
-                    <div class="project-info">
-                        <h3>Modern Luxury Villa</h3>
-                        <p>Residential • 4,500 sq ft</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400" alt="Office Building" />
-                    </div>
-                    <div class="project-info">
-                        <h3>Corporate Office Tower</h3>
-                        <p>Commercial • 12 Stories</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=400" alt="Renovation" />
-                    </div>
-                    <div class="project-info">
-                        <h3>Historic Building Renovation</h3>
-                        <p>Restoration • 1920s Building</p>
-                    </div>
-                </div>
-            </div>
+  <!-- SERVICES -->
+  <div class="container" id="services">
+    <div class="section-title">
+      <h3><i class="fas fa-tools"></i> Our Shutter Services</h3>
+      <p>Precision engineering for every space — from government offices to boutique hotels.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-archway"></i>
+        <h4>Galvanized</h4>
+        <p>Heavy-duty, rust-resistant shutters for industrial & commercial use.</p>
+        <span class="badge"><i class="fas fa-check-circle"></i> 5-year warranty</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-arrows-alt-v"></i>
+        <h4>Vertical Blind</h4>
+        <p>Elegant light control, perfect for large windows & glass facades.</p>
+        <span class="badge"><i class="fas fa-star"></i> 30+ colors</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-grip-lines"></i>
+        <h4>Venetian Blind</h4>
+        <p>Classic aluminum or wood slats, custom-sized for any window.</p>
+        <span class="badge"><i class="fas fa-ruler-combined"></i> custom fit</span>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-scroll"></i>
+        <h4>Roller Blind</h4>
+        <p>Minimalist, durable roller shades with blackout & sun-screen options.</p>
+        <span class="badge"><i class="fas fa-sun"></i> UV protection</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY (mock images) -->
+  <div class="container" id="gallery">
+    <div class="section-title">
+      <h3><i class="fas fa-images"></i> Shutter Gallery</h3>
+      <p>Real installations — galvanized, vertical, venetian, roller.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><i class="fas fa-industry"></i> Galvanized <span>View</span></div>
+      <div class="gallery-item"><i class="fas fa-vertical"></i> Vertical <span>View</span></div>
+      <div class="gallery-item"><i class="fas fa-sliders-h"></i> Venetian <span>View</span></div>
+      <div class="gallery-item"><i class="fas fa-arrow-circle-down"></i> Roller <span>View</span></div>
+    </div>
+    <p style="text-align:center; opacity:0.7; margin: 12px 0 20px;"><i class="fas fa-camera"></i> Contact us for high-res portfolio & site visits.</p>
+  </div>
+
+  <!-- CLIENTS -->
+  <div class="container" id="clients">
+    <div class="section-title">
+      <h3><i class="fas fa-handshake"></i> Our Trusted Clients</h3>
+      <p>Hotels · Hospitals · Government offices · NGOs</p>
+    </div>
+    <div class="clients-list">
+      <span><i class="fas fa-hotel"></i> Hotels</span>
+      <span><i class="fas fa-hospital"></i> Hospitals</span>
+      <span><i class="fas fa-landmark"></i> Government</span>
+      <span><i class="fas fa-globe-africa"></i> NGOs</span>
+      <span><i class="fas fa-city"></i> Offices</span>
+    </div>
+  </div>
+
+  <!-- MAP & LOCATION (Tracon Tower, Piassa) -->
+  <div class="container">
+    <div class="section-title" style="margin-top:20px;">
+      <h3><i class="fas fa-map-pin"></i> Find Us</h3>
+      <p>Tracon Tower, Piassa, Addis Ababa, Ethiopia</p>
+    </div>
+    <div class="map-section">
+      <!-- Google Maps embed – Tracon Tower, Piassa, Addis Ababa -->
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.442585398977!2d38.76321531479892!3d9.023816793505232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85c1ea9d7f33%3A0x6f8e3c8f7e2a0b4d!2sTracon%20Tower!5e0!3m2!1sen!2set!4v1710000000000" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <div class="location-address">
+        <i class="fas fa-location-dot"></i>
+        <span>Tracon Tower, Piassa, Addis Ababa, Ethiopia</span>
+        <span style="background:#c49a2c; color:#fff; padding:4px 18px; border-radius:40px; font-size:0.8rem;"><i class="fas fa-clock"></i> Mon–Sat 8:00–18:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h3><i class="fas fa-address-card"></i> Get in Touch</h3>
+        <p>We respond within 2 hours. On-site consultation available.</p>
+        <div class="contact-detail">
+          <i class="fas fa-phone-alt"></i>
+          <div><strong>Call / WhatsApp</strong><br> <a href="tel:+251913008164">09 13 00 81 64</a> &nbsp;|&nbsp; <a href="tel:+251912377111">09 12 37 71 11</a></div>
         </div>
-    </section>
-
-    <!-- ===== TESTIMONIALS SECTION ===== -->
-    <section class="testimonials section" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Testimonials</span>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <p class="section-subtitle">
-                    Real feedback from our valued clients.
-                </p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "Milky Way Construction exceeded our expectations. Professional, timely, 
-                        and the quality is outstanding. Highly recommended!"
-                    </p>
-                    <div class="client-info">
-                        <h4>John Smith</h4>
-                        <span>Homeowner</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "They completed our office renovation on time and within budget. 
-                        The attention to detail was impressive."
-                    </p>
-                    <div class="client-info">
-                        <h4>Sarah Johnson</h4>
-                        <span>Business Owner</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>
-                        "From design to completion, Milky Way was professional and transparent. 
-                        Our dream home is now a reality."
-                    </p>
-                    <div class="client-info">
-                        <h4>Michael Brown</h4>
-                        <span>Developer</span>
-                    </div>
-                </div>
-            </div>
+        <div class="contact-detail">
+          <i class="fas fa-envelope"></i>
+          <div><strong>Email</strong><br> <a href="mailto:gezahegntad6266@gmail.com">gezahegntad6266@gmail.com</a></div>
         </div>
-    </section>
-
-    <!-- ===== CONTACT SECTION ===== -->
-    <section class="contact section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Contact Us</span>
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">
-                    Ready to start your project? Let's talk!
-                </p>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Galaxy Blvd, Building City, 12345</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 987-6543</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@milkywayconstruction.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Full Name" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email Address" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" placeholder="Your Phone Number" />
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
+        <div class="contact-detail">
+          <i class="fas fa-map-marker-alt"></i>
+          <div><strong>Head office</strong><br> Tracon Tower, Piassa, Addis Ababa</div>
         </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-about">
-                    <h3><i class="fas fa-galaxy"></i> Milky Way Construction</h3>
-                    <p>Building excellence across the galaxy with integrity, innovation, and craftsmanship.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Residential</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Design</a></li>
-                        <li><a href="#">Management</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Milky Way Construction. All Rights Reserved.</p>
-            </div>
+        <div style="margin-top:20px; display:flex; gap:16px; flex-wrap:wrap;">
+          <span style="background:#1b3348; padding:6px 24px; border-radius:60px;"><i class="fas fa-check-circle" style="color:#f5c542;"></i> 24/7 support</span>
+          <span style="background:#1b3348; padding:6px 24px; border-radius:60px;"><i class="fas fa-truck" style="color:#f5c542;"></i> Free estimation</span>
         </div>
-    </footer>
+      </div>
+      <div class="contact-form">
+        <h4 style="color:#f5c542; margin-bottom:20px;"><i class="fas fa-paper-plane"></i> Quick Message</h4>
+        <form id="contactForm" action="#" method="POST">
+          <input type="text" id="fullName" placeholder="Full name" required>
+          <input type="email" id="emailAddr" placeholder="Email address" required>
+          <input type="tel" id="phoneNum" placeholder="Phone number">
+          <textarea id="msgText" placeholder="Tell us about your shutter project (type, size, quantity...)"></textarea>
+          <button type="submit" class="btn" style="width:100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+        <div id="formFeedback" style="margin-top:12px; font-weight:500; color:#f5c542;"></div>
+        <p style="margin-top:18px; font-size:0.85rem; opacity:0.7;"><i class="fas fa-lock"></i> Your data is safe with us.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- ===== BACK TO TOP BUTTON ===== -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p style="margin:18px 0 6px; font-weight:300;">&copy; 2026 Gezahegn Plastic & Metal Shutter Works</p>
+      <small><i class="fas fa-phone"></i> 09 13 00 81 64 | 09 12 37 71 11  ·  <i class="fas fa-envelope"></i> gezahegntad6266@gmail.com</small>
+      <small style="margin-top:12px;">Tracon Tower, Piassa, Addis Ababa, Ethiopia</small>
+    </div>
+  </footer>
 
-    <!-- ===== JAVASCRIPT ===== -->
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
