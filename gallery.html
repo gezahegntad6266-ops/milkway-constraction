@@ -5,7 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* COPY ALL CSS FROM index.html HERE */
+        /* (All the styles from the index.html file) */
+        
+        /* Additional Gallery Page Styles */
+        .gallery-full-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .gallery-full-item {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px 20px 30px;
+            text-align: center;
+            border: 1px solid #e9edf2;
+            transition: 0.3s ease;
+        }
+        .gallery-full-item:hover {
+            border-color: #d4a02b;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        .gallery-full-item i {
+            font-size: 3.6rem;
+            color: #1e3a5f;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .gallery-full-item h4 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .gallery-full-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+        .gallery-full-item span {
+            display: inline-block;
+            background: #d4a02b;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-full-item span:hover {
+            background: #b8891f;
+            transform: scale(1.05);
+        }
+        @media screen and (max-width: 768px) {
+            .gallery-full-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .gallery-full-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -30,10 +95,10 @@
     </header>
 
     <!-- PAGE HEADER -->
-    <section class="page-header">
+    <section class="page-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 60px 0; text-align: center;">
         <div class="container">
-            <h1>Our <span>Gallery</span></h1>
-            <p>Real installations — galvanized, vertical, venetian, roller</p>
+            <h1 style="font-size: 2.8rem; font-weight: 700;">Our <span style="color: #d4a02b;">Gallery</span></h1>
+            <p style="opacity: 0.8; margin-top: 8px;">Real installations — galvanized, vertical, venetian, roller</p>
         </div>
     </section>
 
@@ -42,55 +107,37 @@
         <div class="container">
             <div class="gallery-full-grid">
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Galvanized+Shutters" 
-                             alt="Galvanized Shutters">
-                    </div>
+                    <i class="fas fa-industry"></i>
                     <h4>Galvanized Shutters</h4>
                     <p>Heavy-duty shutters for industrial and commercial buildings.</p>
                     <span>View Project</span>
                 </div>
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Vertical+Blinds" 
-                             alt="Vertical Blinds">
-                    </div>
+                    <i class="fas fa-vertical"></i>
                     <h4>Vertical Blinds</h4>
                     <p>Elegant vertical blinds for hotels and office buildings.</p>
                     <span>View Project</span>
                 </div>
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Venetian+Blinds" 
-                             alt="Venetian Blinds">
-                    </div>
+                    <i class="fas fa-sliders-h"></i>
                     <h4>Venetian Blinds</h4>
                     <p>Classic venetian blinds for homes and offices.</p>
                     <span>View Project</span>
                 </div>
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Roller+Blinds" 
-                             alt="Roller Blinds">
-                    </div>
+                    <i class="fas fa-arrow-circle-down"></i>
                     <h4>Roller Blinds</h4>
                     <p>Modern roller blinds for hospitals and modern spaces.</p>
                     <span>View Project</span>
                 </div>
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Hotel+Installation" 
-                             alt="Hotel Installation">
-                    </div>
+                    <i class="fas fa-hotel"></i>
                     <h4>Hotel Installations</h4>
                     <p>Complete shutter solutions for boutique hotels.</p>
                     <span>View Project</span>
                 </div>
                 <div class="gallery-full-item">
-                    <div class="gallery-image-wrapper">
-                        <img src="https://via.placeholder.com/500x350/1e3a5f/d4a02b?text=Hospital+Installation" 
-                             alt="Hospital Installation">
-                    </div>
+                    <i class="fas fa-hospital"></i>
                     <h4>Hospital Installations</h4>
                     <p>Durable and hygienic shutters for healthcare facilities.</p>
                     <span>View Project</span>
@@ -108,7 +155,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -132,6 +179,37 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        (function() {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const active = navLinks.classList.toggle('active');
+                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = active ? 'hidden' : '';
+                });
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    });
+                });
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+            const yearEl = document.querySelector('.footer-bottom p');
+            if (yearEl) {
+                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
+            }
+        })();
+    </script>
 </body>
 </html>
