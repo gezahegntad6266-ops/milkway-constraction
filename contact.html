@@ -5,7 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gezahegn Shutter Works | Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* COPY ALL CSS FROM index.html HERE */
+        /* (All the styles from the index.html file) */
+        
+        /* Additional Contact Page Styles */
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .social-links a {
+            width: 48px;
+            height: 48px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #0f172a;
+            transition: 0.3s ease;
+        }
+        .social-links a:hover {
+            background: #d4a02b;
+            color: #fff;
+            transform: translateY(-4px);
+        }
+        #formFeedback {
+            margin-top: 12px;
+            font-weight: 500;
+            color: #d4a02b;
+            min-height: 30px;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,19 +64,19 @@
     </header>
 
     <!-- PAGE HEADER -->
-    <section class="page-header">
+    <section class="page-header" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: #fff; padding: 60px 0; text-align: center;">
         <div class="container">
-            <h1>Contact <span>Us</span></h1>
-            <p>We respond within 2 hours. On-site consultation available.</p>
+            <h1 style="font-size: 2.8rem; font-weight: 700;">Contact <span style="color: #d4a02b;">Us</span></h1>
+            <p style="opacity: 0.8; margin-top: 8px;">We respond within 2 hours. On-site consultation available.</p>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
     <section class="section-padding">
         <div class="container">
-            <div class="contact-grid-full">
+            <div class="contact-grid">
                 <!-- Contact Info -->
-                <div class="contact-info-full">
+                <div class="contact-info">
                     <h3>Get In <span>Touch</span></h3>
                     <p>Reach out to us for a free estimate or to discuss your shutter project.</p>
 
@@ -88,8 +122,7 @@
                 </div>
 
                 <!-- Contact Form -->
-                <div class="contact-form-full">
-                    <h3>Send Us a <span>Message</span></h3>
+                <div class="contact-form">
                     <form id="contactForm">
                         <input type="text" id="fullName" placeholder="Full Name" required>
                         <input type="email" id="emailAddr" placeholder="Email Address" required>
@@ -100,7 +133,7 @@
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>
-                    <div id="formFeedback" style="margin-top: 12px; font-weight: 500; color: #d4a02b;"></div>
+                    <div id="formFeedback"></div>
                 </div>
             </div>
 
@@ -128,7 +161,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <h3>Gezahegn <span>Shutter</span></h3>
-                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs.</p>
+                    <p>Quality plastic and metal shutter solutions for hotels, hospitals, government offices, and NGOs across Ethiopia.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
@@ -152,6 +185,79 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        (function() {
+            'use strict';
+
+            // Mobile Nav
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const active = navLinks.classList.toggle('active');
+                    this.innerHTML = active ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = active ? 'hidden' : '';
+                });
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    });
+                });
+                document.addEventListener('click', function(e) {
+                    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Contact Form
+            const form = document.getElementById('contactForm');
+            const feedback = document.getElementById('formFeedback');
+            if (form && feedback) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('fullName')?.value.trim() || '';
+                    const email = document.getElementById('emailAddr')?.value.trim() || '';
+                    const msg = document.getElementById('msgText')?.value.trim() || '';
+
+                    if (!name || !email || !msg) {
+                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+                        feedback.style.color = '#d4a02b';
+                        return;
+                    }
+                    if (!email.includes('@') || !email.includes('.')) {
+                        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+                        feedback.style.color = '#d4a02b';
+                        return;
+                    }
+
+                    feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+                    feedback.style.color = '#94a3b8';
+
+                    setTimeout(() => {
+                        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
+                        feedback.style.color = '#22c55e';
+                        form.reset();
+                        setTimeout(() => {
+                            feedback.innerHTML = '';
+                        }, 5000);
+                    }, 1500);
+                });
+            }
+
+            // Dynamic Year
+            const yearEl = document.querySelector('.footer-bottom p');
+            if (yearEl) {
+                yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
+            }
+
+            console.log('✅ Gezahegn Shutter Works — Contact Page Loaded');
+        })();
+    </script>
 </body>
 </html>
