@@ -1,95 +1,94 @@
-// Mobile Navigation Toggle
 (function() {
-  const hamburger = document.getElementById('hamburgerBtn');
-  const navLinks = document.getElementById('navLinks');
-  
-  if (hamburger && navLinks) {
-    // Toggle menu on hamburger click
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
-    });
-    
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-        navLinks.classList.remove('active');
-      }
-    });
-  }
-})();
+    'use strict';
 
-// Contact Form Handler with Validation
-(function() {
-  const form = document.getElementById('contactForm');
-  const feedback = document.getElementById('formFeedback');
-  
-  if (form && feedback) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Get form values
-      const name = document.getElementById('fullName')?.value.trim() || '';
-      const email = document.getElementById('emailAddr')?.value.trim() || '';
-      const phone = document.getElementById('phoneNum')?.value.trim() || '';
-      const message = document.getElementById('msgText')?.value.trim() || '';
-      
-      // Validate required fields
-      if (!name || !email || !message) {
-        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
-        feedback.style.color = '#f5c542';
-        return;
-      }
-      
-      // Validate email format
-      if (!email.includes('@') || !email.includes('.')) {
-        feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
-        feedback.style.color = '#f5c542';
-        return;
-      }
-      
-      // Simulate sending
-      feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
-      feedback.style.color = '#a0bcd9';
-      
-      // Simulate successful submission
-      setTimeout(() => {
-        feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
-        feedback.style.color = '#7ddf9a';
-        form.reset();
-        
-        // Clear feedback after 6 seconds
-        setTimeout(() => {
-          feedback.innerHTML = '';
-        }, 6000);
-      }, 1800);
-    });
-  }
-})();
+    // ============================================================
+    // MOBILE NAVIGATION
+    // ============================================================
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navLinks = document.getElementById('navLinks');
 
-// Smooth scrolling for anchor links (optional enhancement)
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const targetId = this.getAttribute('href');
-    if (targetId === '#') return;
-    
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      e.preventDefault();
-      const headerHeight = document.querySelector('header')?.offsetHeight || 0;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-      
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = navLinks.classList.toggle('active');
+            this.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = '';
+            }
+        });
     }
-  });
-});
+
+    // ============================================================
+    // CONTACT FORM
+    // ============================================================
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    if (form && feedback) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('fullName')?.value.trim() || '';
+            const email = document.getElementById('emailAddr')?.value.trim() || '';
+            const message = document.getElementById('msgText')?.value.trim() || '';
+
+            if (!name || !email || !message) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all required fields.';
+                feedback.style.color = '#d4a02b';
+                return;
+            }
+
+            if (!email.includes('@') || !email.includes('.')) {
+                feedback.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address.';
+                feedback.style.color = '#d4a02b';
+                return;
+            }
+
+            feedback.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+            feedback.style.color = '#94a3b8';
+
+            setTimeout(() => {
+                feedback.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you shortly.';
+                feedback.style.color = '#22c55e';
+                form.reset();
+                setTimeout(() => {
+                    feedback.innerHTML = '';
+                }, 6000);
+            }, 1500);
+        });
+    }
+
+    // ============================================================
+    // DYNAMIC YEAR
+    // ============================================================
+    const yearEl = document.querySelector('.footer-bottom p');
+    if (yearEl) {
+        yearEl.innerHTML = yearEl.innerHTML.replace('2026', new Date().getFullYear());
+    }
+
+    console.log('✅ Gezahegn Shutter Works — Multi-page website loaded');
+    console.log('📍 Tracon Tower, Piassa, Addis Ababa');
+
+})();
