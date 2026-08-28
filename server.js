@@ -47,6 +47,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Health endpoint for liveness checks
 app.get('/health', (req, res) => res.status(200).send('ok'));
 
+// Serve root index.html from repo root (index.html is in project root)
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
 // POST /api/gallery - upload an image and insert DB row
 app.post('/api/gallery', upload.single('image'), async (req, res) => {
   try {
